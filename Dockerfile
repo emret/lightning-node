@@ -25,7 +25,7 @@ RUN set -ex \
     && rm -rf /tmp/*
 
 # create data directory
-ENV BITCOIN_DATA /data
+ENV BITCOIN_DATA /mnt/volume-sfo2-01
 RUN mkdir "$BITCOIN_DATA" \
     && chown -R bitcoin:bitcoin "$BITCOIN_DATA" \
     && ln -sfn "$BITCOIN_DATA" /home/bitcoin/.bitcoin \
