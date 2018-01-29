@@ -25,12 +25,12 @@ RUN set -ex \
     && rm -rf /tmp/*
 
 # create data directory
-ENV BITCOIN_DATA /mnt/volume-sfo2-01/data
+ENV BITCOIN_DATA /mnt/data-part1
 RUN mkdir "$BITCOIN_DATA" \
     && chown -R bitcoin:bitcoin "$BITCOIN_DATA" \
     && ln -sfn "$BITCOIN_DATA" /home/bitcoin/.bitcoin \
     && chown -h bitcoin:bitcoin /home/bitcoin/.bitcoin
-VOLUME /mnt/volume-sfo2-01/data
+VOLUME /mnt/data-part1
 
 COPY docker-entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
